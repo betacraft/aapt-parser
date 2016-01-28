@@ -9,12 +9,14 @@ import (
 var (
 	permissions         = "uses-permission"
 	featuresNotRequired = "uses-feature-not-required"
+	featuresRequired    = "uses-feature"
 	packageKey          = "package"
 	usesGl              = "uses-gl-es"
 	appLabel            = "application-label"
 	libsNotRequired     = "uses-library-not-required"
 	targetSdkVersion    = "targetSdkVersion"
 	sdkVersion          = "sdkVersion"
+	nativeCode          = "native-code"
 )
 
 type Apk struct {
@@ -30,6 +32,7 @@ type Apk struct {
 	TargetSdkVersion    string
 	SdkVersion          string
 	GlUse               string
+	NativeCode          string
 }
 
 func Parse(apkPath string) *Apk {
@@ -54,7 +57,7 @@ func Parse(apkPath string) *Apk {
 			continue
 		}
 		if strings.Contains(line, featuresNotRequired) {
-			getFeatureNotReqInfo(line, apk)
+			getFeatureNotRequired(line, apk)
 			continue
 		}
 		if strings.Contains(line, packageKey) {
@@ -70,15 +73,23 @@ func Parse(apkPath string) *Apk {
 			continue
 		}
 		if strings.Contains(line, libsNotRequired) {
-			getLibsNotReqInfo(line, apk)
+			getLibsNotRequired(line, apk)
 			continue
 		}
 		if strings.Contains(line, targetSdkVersion) {
-			getTargetSdkInfo(line, apk)
+			getTargetSdk(line, apk)
 			continue
 		}
 		if strings.Contains(line, sdkVersion) {
-			getSdkInfo(line, apk)
+			getSdk(line, apk)
+			continue
+		}
+		if strings.Contains(line, nativeCode) {
+			getNativeCode(line, apk)
+			continue
+		}
+		if strings.Contains(line, featuresRequired) {
+			getFeatureRequired(line, apk)
 			continue
 		}
 	}

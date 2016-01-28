@@ -18,7 +18,7 @@ func getPermissionInfo(line string, apk *Apk) {
 	apk.Permissions = append(apk.Permissions, data)
 }
 
-func getFeatureNotReqInfo(line string, apk *Apk) {
+func getFeatureNotRequired(line string, apk *Apk) {
 	data := getSplitDataAndRemoveSignleQuotes(line, ":")
 	apk.FeaturesNotRequired = append(apk.FeaturesNotRequired, data)
 }
@@ -33,17 +33,17 @@ func getAppLabel(line string, apk *Apk) {
 	apk.AppLabel = data
 }
 
-func getLibsNotReqInfo(line string, apk *Apk) {
+func getLibsNotRequired(line string, apk *Apk) {
 	data := getSplitDataAndRemoveSignleQuotes(line, ":")
 	apk.LibsNotRequired = append(apk.LibsNotRequired, data)
 }
 
-func getTargetSdkInfo(line string, apk *Apk) {
+func getTargetSdk(line string, apk *Apk) {
 	data := getSplitDataAndRemoveSignleQuotes(line, ":")
 	apk.TargetSdkVersion = data
 }
 
-func getSdkInfo(line string, apk *Apk) {
+func getSdk(line string, apk *Apk) {
 	data := getSplitDataAndRemoveSignleQuotes(line, ":")
 	apk.SdkVersion = data
 }
@@ -66,4 +66,14 @@ func getPackageInfo(line string, apk *Apk) {
 			continue
 		}
 	}
+}
+
+func getNativeCode(line string, apk *Apk) {
+	data := getSplitDataAndRemoveSignleQuotes(line, ":")
+	apk.NativeCode = data
+}
+
+func getFeatureRequired(line string, apk *Apk) {
+	data := getSplitDataAndRemoveSignleQuotes(line, ":")
+	apk.FeaturesRequired = append(apk.FeaturesRequired, data)
 }

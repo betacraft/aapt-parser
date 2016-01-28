@@ -21,5 +21,7 @@ func TestParseApk(t *testing.T) {
 		"VersionName:", apk.VersionName, "\n",
 		"SdkVersion:", apk.SdkVersion, "\n",
 		"TargetSdkVersion:", apk.TargetSdkVersion, "\n",
-		"UsesPermissions:", apk.Permissions)
+		"UsesPermissions:", apk.Permissions, "\n",
+		"NativeCode:", apk.NativeCode, "\n",
+		"FeaturesRequired:", apk.FeaturesRequired)
 }

@@ -22,7 +22,7 @@ var (
 type Apk struct {
 	Permissions         []string
 	FeaturesNotRequired []string
-	FeaturesRequired    []string // TODO
+	FeaturesRequired    []string
 	LibsNotRequired     []string
 	LibsRequired        []string // TODO
 	AppLabel            string

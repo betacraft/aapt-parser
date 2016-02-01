@@ -6,7 +6,7 @@ import (
 )
 
 func TestParseApk(t *testing.T) {
-	apk := Parse("20454129.apk")
+	apk := Parse("eventbrite.apk")
 
 	if apk == nil {
 		t.Fail()

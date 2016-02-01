@@ -35,17 +35,17 @@ type Apk struct {
 	NativeCode          string
 }
 
-func Parse(apkPath string) *Apk {
+func Parse(apkPath string) (*Apk, error) {
 	apk := new(Apk)
 	op, err := exec.Command("aapt", "dump", "badging", apkPath).Output()
 	if err == exec.ErrNotFound {
 		log.Println("Install aapt first")
-		return nil
+		return nil, err
 	}
 
 	if err != nil {
 		log.Println("Check if path is correct, use absolute path")
-		return nil
+		return nil, err
 	}
 
 	data := strings.TrimSpace(string(op))
@@ -94,5 +94,5 @@ func Parse(apkPath string) *Apk {
 		}
 	}
 
-	return apk
+	return apk, nil
 }

@@ -9,7 +9,7 @@ import (
 
 func TestParseApk(t *testing.T) {
 	for {
-		apk, err := Parse("fbwork.apk")
+		apk, err := Parse("20454129.apk")
 		log.Println("error: ", err)
 		if err != nil {
 			log.Println("error: ", err)

@@ -70,7 +70,7 @@ func getPackageInfo(line string, apk *Apk) {
 
 func getNativeCode(line string, apk *Apk) {
 	data := getSplitDataAndRemoveSignleQuotes(line, ":")
-	apk.NativeCode = data
+	apk.NativeCode = strings.Split(data, " ")
 }
 
 func getFeatureRequired(line string, apk *Apk) {

@@ -32,7 +32,7 @@ type Apk struct {
 	TargetSdkVersion    string
 	SdkVersion          string
 	GlUse               string
-	NativeCode          string
+	NativeCode          []string
 }
 
 func Parse(apkPath string) (*Apk, error) {

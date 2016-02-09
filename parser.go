@@ -12,7 +12,7 @@ var (
 	featuresRequired    = "uses-feature"
 	packageKey          = "package"
 	usesGl              = "uses-gl-es"
-	appLabel            = "application-label"
+	appLabel            = "application-label:"
 	libsNotRequired     = "uses-library-not-required"
 	targetSdkVersion    = "targetSdkVersion"
 	sdkVersion          = "sdkVersion"
